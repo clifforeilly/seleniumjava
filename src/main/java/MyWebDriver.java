@@ -8,6 +8,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.MarionetteDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class MyWebDriver {
 
@@ -17,12 +18,12 @@ public class MyWebDriver {
     {
         try {
             if (browser.equals("chrome")) {
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\co17\\LocalStuff\\MyStuff\\Projects\\seleniumjava\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "G:\\ShareOne\\Cliff\\Dev\\seleniumjava\\chromedriver.exe");
                 driver = new ChromeDriver();
             }
 
             if (browser.equals("firefox")) {
-                System.setProperty("webdriver.gecko.driver", "C:\\Users\\co17\\LocalStuff\\MyStuff\\Projects\\seleniumjava\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "G:\\ShareOne\\Cliff\\Dev\\seleniumjava\\geckodriver.exe");
                 driver = new MarionetteDriver();
             }
         }
@@ -39,7 +40,9 @@ public class MyWebDriver {
         if(type.equals("xpath")){
             e = driver.findElement(By.xpath(Identifier));
         }
-
+        else if(type.equals("linktext")){
+            e = driver.findElement(By.linkText(Identifier));
+        }
         return e;
     }
 
@@ -54,14 +57,32 @@ public class MyWebDriver {
         try {
             WebElement e = findMyElement(type, Identifier);
 
-            if(Value.equals("isDisplayed")){
+            if(type2.equals("isDisplayed")){
                 if(e.isDisplayed()){
                     output = true;
+                    System.out.println("Test case asserted successfully");
+                }
+            }
+            else if(type2.equals("isNotDisplayed")){
+                if(e.isDisplayed()){
+                    output = false;
+                    System.out.println("Test case failed");
                 }
             }
             else{
                 if(type2.equals("textIs")){
                     if(e.getText().equals(Value)){
+                        output = true;
+                        System.out.println("Test case asserted successfully");
+                    }
+                    else
+                    {
+                        System.out.println("Test case failed");
+                    }
+                }
+                else if(type2.equals("textIsNot")){
+                    if(e.getText().equals(Value)){
+                        output = true;
                         System.out.println("Test case asserted successfully");
                     }
                     else
@@ -72,7 +93,12 @@ public class MyWebDriver {
             }
         }
         catch(NoSuchElementException ex){
-            System.out.println("Assertion fails - element does not exist");
+            if(type2.equals("isNotDisplayed")){
+                System.out.println("Assertion succeeds - element is not displayed");
+            }
+            else{
+                System.out.println("Assertion fails - element does not exist");
+            }
         }
         return output;
     }
@@ -97,6 +123,21 @@ public class MyWebDriver {
                 }
             }
 
+            if(action.equals("movetoandclick")){
+                WebElement e = findMyElement(type, Identifier);
+                Actions a = new Actions(driver);
+                a.moveToElement(e).click(e).build().perform();
+
+                //a.click().build().perform();
+                //a.contextClick(e).click().build().perform();
+            }
+
+            if(action.equals("doubleclickandsendkeys")){
+                WebElement e = findMyElement(type, Identifier);
+                Actions a = new Actions(driver);
+                a.moveToElement(e).doubleClick().sendKeys(Value).sendKeys(Keys.RETURN).build().perform();
+            }
+
             if(action.equals("click")){
                 WebElement e = findMyElement(type, Identifier);
                 e.click();
@@ -106,7 +147,7 @@ public class MyWebDriver {
                 myAssert(type, Identifier, Value, type2);
             }
 
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
         }
         catch(Exception ex){

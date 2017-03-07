@@ -2,13 +2,39 @@ testcase1,add a new item - positive,navigate,,,http://todomvc.com/examples/angul
 testcase1,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry,
 testcase1,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
 testcase1,add a new item - positive,assert,xpath,//label[@ng-dblclick='editTodo(todo)'],a new entry,textIs
-testcase2,add a new item - positive,navigate,,,http://todomvc.com/examples/angularjs/#/,
-testcase2,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 1,
-testcase2,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
-testcase2,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 2,
-testcase2,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
-testcase2,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 3,
-testcase2,add a new item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
-testcase2,add a new item - positive,sendkeys,xpath,(//button[@ng-click='removeTodo(todo)'])[2],{{RETURN}},
-testcase2,add a new item - positive,click,xpath,(//label[@ng-dblclick='editTodo(todo)'])[2],,
-testcase2,add a new item - positive,assert,xpath,//label[@ng-dblclick='editTodo(todo)'],a new entry 2,isDisplayed
+
+testcase2,delete existing item - positive,navigate,,,http://todomvc.com/examples/angularjs/#/,
+testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 1,
+testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
+testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 2,
+testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
+testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 3,
+testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
+testcase2,delete existing item - positive,movetoandclick,xpath,//ul[@id='todo-list']/li[2]/div/button,,
+testcase2,delete existing item - positive,assert,xpath,"//label[@ng-dblclick='editTodo(todo)'][contains(.,"a new entry 2")]",,isDisplayed
+
+testcase3,edit existing item - positive,navigate,,,http://todomvc.com/examples/angularjs/#/,
+testcase3,edit existing item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 1,
+testcase3,edit existing item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
+testcase3,edit existing item - positive,doubleclickandsendkeys,xpath,//label[@ng-dblclick='editTodo(todo)'],more text,
+testcase3,edit existing item - positive,assert,xpath,//label[@ng-dblclick='editTodo(todo)'],a new entry 1more text,textIs
+
+testcase4, mark as completed - positive,navigate,,,http://todomvc.com/examples/angularjs/#/,
+testcase4, mark as completed - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 1,
+testcase4, mark as completed - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},,
+testcase4, mark as completed - positive,click,xpath,//input[@ng-model="todo.completed"],,
+testcase4, mark as completed - positive,assert,xpath,//li[@class="ng-scope completed"],,isDisplayed
+
+testcase5, filter items - positive,navigate,,,http://todomvc.com/examples/angularjs/#/,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 1,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 2,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 3,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 4,
+testcase5, filter items - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},,
+testcase5, filter items - positive,click,xpath,(//input[@ng-model="todo.completed"])[2],,
+testcase5, filter items - positive,click,xpath,(//input[@ng-model="todo.completed"])[4],,
+testcase5, filter items - positive,click,linktext,Active,,
+testcase5, filter items - positive,assert,xpath,(//label[@ng-dblclick='editTodo(todo)'])[3],,isNotDisplayed

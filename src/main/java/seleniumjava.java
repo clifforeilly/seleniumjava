@@ -17,7 +17,7 @@ public class seleniumjava {
 
     public static void main (String[] args)
     {
-        String testCaseName = "testcase2";
-        TestCase tc1 = new TestCase(testCaseName, "firefox");
+        String testCaseName = "testcase5";
+        TestCase tc1 = new TestCase(testCaseName, "chrome");
     }
 }

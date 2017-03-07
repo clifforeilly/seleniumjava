@@ -12,7 +12,7 @@ public class TestCase {
     public TestCase(String testCaseName, String browser)
     {
         try {
-            String fileName = "C:\\Users\\co17\\LocalStuff\\MyStuff\\Projects\\seleniumjava\\testcases.csv";
+            String fileName = "G:\\ShareOne\\Cliff\\Dev\\seleniumjava\\testcases.csv";
 
             CSVReader csvinput = new CSVReader(new FileReader(fileName));
             List csvinputdata = csvinput.readAll();

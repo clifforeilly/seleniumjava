@@ -9,11 +9,9 @@ public class seleniumjava {
     // 3. edit existing item - positive
     // 4. mark as completed - positive
     // 5. filter items - positive
-    // 6. add a new item - negative
-    // 7. delete existing item - negative
-    // 8. edit existing item - negative
-    // 9. mark as completed - negative
-    // 10. filter items - negative
+    // 6. simple pages tests, e.g. assert the "todos" title is displayed, assert the main input field display, assert the All/Active/Completed buttons are displayed etc
+    // 6. text overload - negative
+    // 7. text validation - negative, e.g. assert that the text input is the same as the text displayed
 
     public static void main (String[] args)
     {

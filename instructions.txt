@@ -1,0 +1,65 @@
+Please also send him the following tips (because he is coming from C# background):
+Download Java JDK from here
+Download Intellij Community from here
+Create a Maven Java Project (File -> New -> Project… -> select Maven -> continue by flowing the instructions)
+If needed select your JDK location
+In the new project, you will have pom.xml file
+For example In order to import Selenium, Add the following
+<dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.53.1</version>
+ </dependency>
+The above dependency should be inside the following node (add it if it doesn’t exist):
+<dependencies> </dependencies>
+Please note the you can find more maven libraries here (if needed)
+If you are familiar with Nunit you can add a dependency for TestNG. TestNG is very similar to Nunit.
+If using TestNG you have to add TestNG-J plugin to Intellij (File -> Setting -> Plugins -> search for TestNG-J)
+Or you can use Junit which is the default testing framework (which as well similar to Nunit)
+
+
+
+
+#1
+
+Assume our engineers have developed a new to-do list web. The application’s requirements are for the user to be able to do the following actions: 
+1.	Add new items
+2.	Delete existing items
+3.	Edit existing items
+4.	Mark as completed
+5.	Filter items
+There is only one list available to the user.
+The demo application is at: http://todomvc.com/examples/angularjs/#/
+Your task is to design and write some automation tests, using Java and Selenium WebDriver, to test the above requirements. It should work in a modern version of Chrome or Firefox, at your choice.
+Please do not write more than six separate tests (you can write fewer if appropriate). If there are more use cases that you think should be automated, please write and explain them as comments in the code, for discussion at interview. You should consider both positive and negative scenarios.
+Please also consider: if this feature was part of a more complicated web application, what would you change in your design? How would you make it extensible and re-usable?
+Please pay attention to how you structure your code – we will be looking at the classes you’ve built, how you chose to solve the problem, how clean and well-structured your code is, and how easily it could be extended and adapted.
+This should take no more than 60 minutes. Please note how long it took you, and any assumptions you made. Bring your code on a memory stick – it must work, we must be able into import it into a Java IDE, and we will ask you to run and talk us through your code in the interview.
+You may use any publicly available libraries you feel suitable, but you must bring all dependencies with you (or use something like Maven). You may assume you will have internet access.
+
+
+
+#2
+
+Please write a Java application that allows a user to query and show details for a given UK postcode.
+The app should use the freely available (no API key needed) REST API at http://postcodes.io
+Feel free to use any libraries you feel suitable, EXCEPT for any published that directly relate to postcodes.io – we’re interested in how you build an application to directly interact with a JSON-formatted REST API.
+Details:
+•	Console output only – no UI needed.
+•	Your application should accept a postcode as an argument to its main() method.
+•	It should query the API to:
+o	Validate the postcode parameter – invalid postcodes should produce an error message
+o	Print the country and region for that postcode.
+o	Print a list of the nearest postcodes, and their countries and regions.
+•	API methods of interest:
+o	GET /postcodes/{POSTCODE}
+o	GET /postcodes/{POSTCODE}/validate
+o	GET /postcodes/{POSTCODE}/nearest
+•	Consider carefully your error handling (eg API failure / timeout, invalid input etc)
+•	Please add some unit tests - don’t go overboard, but show us an example or two of some edge cases or things that could go wrong.
+•	Time-depending, you could also consider additional API calls, such as postcode suggestions.
+Test postcode to use: CB3 0FA (Featurespace Cambridge office)
+Please pay attention to how you structure your code - we will be looking at how you chose to solve the problem, how clean and well-structured your code is, and how easily it could be extended and adapted.
+This should take around than 60 minutes. Please note how long it took you, any assumptions you made, and also if you’d had more time which things you might improve.
+Please zip up and send us your code in advance, or bring your code on a memory stick. It must work, and we will load it in an IDE (IntelliJ, but you can use whatever you prefer to build). We’ll ask you to run it and talk us through your code in the interview, and perhaps make some changes.
+You may use any publicly available libraries you feel suitable, but you must bring all dependencies with you (or use something like maven). You may assume you will have internet access.

@@ -10,8 +10,8 @@ testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo']
 testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
 testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 3,
 testcase2,delete existing item - positive,sendkeys,xpath,//input[@id='new-todo'],{{RETURN}},
-testcase2,delete existing item - positive,movetoandclick,xpath,//ul[@id='todo-list']/li[2]/div/button,,
-testcase2,delete existing item - positive,assert,xpath,"//label[@ng-dblclick='editTodo(todo)'][contains(.,"a new entry 2")]",,isDisplayed
+testcase2,delete existing item - positive,movetoandclick,xpath,//ul[@id='todo-list']/li[2]/div,//ul[@id='todo-list']/li[2]/div/button,
+testcase2,delete existing item - positive,assert,xpath,(//label[@ng-dblclick='editTodo(todo)'])[3],,isNotDisplayed
 
 testcase3,edit existing item - positive,navigate,,,http://todomvc.com/examples/angularjs/#/,
 testcase3,edit existing item - positive,sendkeys,xpath,//input[@id='new-todo'],a new entry 1,

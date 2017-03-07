@@ -17,7 +17,12 @@ public class seleniumjava {
 
     public static void main (String[] args)
     {
-        String testCaseName = "testcase5";
-        TestCase tc1 = new TestCase(testCaseName, "chrome");
+        String browser = "chrome";
+
+        String[] testCases = {"testcase1", "testcase2", "testcase3", "testcase4", "testcase5"};
+
+        for(String tc : testCases){
+            TestCase tc1 = new TestCase(tc, browser);
+        }
     }
 }

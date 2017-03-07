@@ -126,9 +126,9 @@ public class MyWebDriver {
             if(action.equals("movetoandclick")){
                 WebElement e = findMyElement(type, Identifier);
                 Actions a = new Actions(driver);
-                a.moveToElement(e).click(e).build().perform();
-
-                //a.click().build().perform();
+                a.moveToElement(e).build().perform();
+                WebElement e2 = findMyElement(type, Value);
+                a.click(e2).build().perform();
                 //a.contextClick(e).click().build().perform();
             }
 

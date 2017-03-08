@@ -10,7 +10,7 @@ public class seleniumjava {
     // 4. mark as completed - positive
     // 5. filter items - positive
     // 6. simple pages tests, e.g. assert the "todos" title is displayed, assert the main input field display, assert the All/Active/Completed buttons are displayed etc
-    // 6. text overload - negative
+    // 6. text overload - negative, e.g. that we can add 1,000 character strings etc
     // 7. text validation - negative, e.g. assert that the text input is the same as the text displayed
 
     public static void main (String[] args)
@@ -22,5 +22,9 @@ public class seleniumjava {
         for(String tc : testCases){
             TestCase tc1 = new TestCase(tc, browser);
         }
+    }
+
+    public static String getFolder(){
+        return "G:\\ShareOne\\Cliff\\Dev\\seleniumjava";
     }
 }

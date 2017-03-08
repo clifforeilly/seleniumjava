@@ -18,12 +18,12 @@ public class MyWebDriver {
     {
         try {
             if (browser.equals("chrome")) {
-                System.setProperty("webdriver.chrome.driver", "G:\\ShareOne\\Cliff\\Dev\\seleniumjava\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", seleniumjava.getFolder() + "\\chromedriver.exe");
                 driver = new ChromeDriver();
             }
 
             if (browser.equals("firefox")) {
-                System.setProperty("webdriver.gecko.driver", "G:\\ShareOne\\Cliff\\Dev\\seleniumjava\\geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", seleniumjava.getFolder() + "\\geckodriver.exe");
                 driver = new MarionetteDriver();
             }
         }
@@ -129,7 +129,6 @@ public class MyWebDriver {
                 a.moveToElement(e).build().perform();
                 WebElement e2 = findMyElement(type, Value);
                 a.click(e2).build().perform();
-                //a.contextClick(e).click().build().perform();
             }
 
             if(action.equals("doubleclickandsendkeys")){

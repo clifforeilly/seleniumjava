@@ -12,7 +12,8 @@ public class TestCase {
     public TestCase(String testCaseName, String browser)
     {
         try {
-            String fileName = "G:\\ShareOne\\Cliff\\Dev\\seleniumjava\\testcases.csv";
+
+            String fileName = seleniumjava.getFolder() + "\\testcases.csv";
 
             CSVReader csvinput = new CSVReader(new FileReader(fileName));
             List csvinputdata = csvinput.readAll();
